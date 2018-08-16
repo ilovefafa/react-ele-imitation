@@ -1,0 +1,97 @@
+.SelectLocation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    overflow-y: scroll;
+    background-color: #f4f4f4;
+    .warp {
+        font-size: 14.56px;
+        background-color: #fff;
+        .header {
+            position: sticky;
+            background-image: linear-gradient(90deg, #0af, #0085ff);
+            text-align: center;
+            color: #fff;
+            img {
+                left: 3.333333vw;
+                top: 3.333333vw;
+                position: absolute;
+                width: 5.333333vw;
+                height: 5.333333vw;
+            }
+            p {
+                line-height: 11.733333vw;
+            }
+        }
+        .select {
+            display: flex;
+            font-size: 12px;
+            .selectCity {
+                padding-left: 4vw;
+                display: flex;
+                align-items: center;
+                span {
+                    color: #333;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    width: 10.666667vw;
+                    margin-right: 1.333333vw;
+                    text-align: center;
+                }
+                img {
+                    text-align: center;
+                    display: inline-block;
+                    width: 1.6vw;
+                }
+            }
+            .input {
+                position: relative;
+                flex: 1;
+                padding: 2.666667vw 4vw;
+                input {
+                    box-sizing: border-box;
+                    background: #f2f2f2;
+                    line-height: 4.8vw;
+                    height: 9.6vw;
+                    color: #999;
+                    border-radius: .266667vw;
+                    width: 100%;
+                    padding: 2.4vw 4.8vw 2.4vw 6.666667vw;
+                    appearance: none;
+                }
+                img {
+                    position: absolute;
+                    left: 5.866667vw;
+                    top: 5.6vw;
+                    width: 3.733333vw;
+                }
+            }
+        }
+        .list {
+            .item {
+                padding: 2.933333vw 4vw;
+                color: #2a2a2a;
+                .warp {
+                    padding: 10px;
+                    h3 {
+                        font-weight: 700;
+                        font-size: 16px;
+                        color: #333;
+                    }
+                    p {
+                        margin-top: 2px;
+                        font-size: 14px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                border-bottom: 1px solid #eee;
+            }
+        }
+    }
+}

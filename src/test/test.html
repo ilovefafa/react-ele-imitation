@@ -9,19 +9,49 @@
 </head>
 
 <body>
-    <div id="test">
-        <p>12321321</p>
-        <i>iiii</i>
-    </div>
+    <ul>
+        <li>
+            <a href="#/">turn white</a>
+        </li>
+        <li>
+            <a href="#/blue">turn blue</a>
+        </li>
+        <li>
+            <a href="#/green">turn green</a>
+        </li>
+    </ul>
 </body>
 
 <style>
+    .test {
+        height: 200px;
+        width: 100%;
+        background: black;
+        position: relative;
+    }
+
+    .ab1 {
+        position: absolute;
+        height: 100px;
+        width: 50%;
+        background: yellow;
+        top: 0;
+    }
+
+    .ab2 {
+        /* position: relative; */
+        height: 100px;
+        width: 50%;
+        background: red;
+    }
 </style>
 <script>
-    let a = [{ a: '1' }, '2']
-    for (let i = 0; i < a.length; i++) {
-        a[i].ha = 'test'
-    }
+    toggleTodo = id => ({
+        type: 'TOGGLE_TODO',
+        id
+    })
+
+    let a = toggleTodo(3)
     console.log(a)
 </script>
 

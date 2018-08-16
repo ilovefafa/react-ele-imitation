@@ -1,19 +1,101 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import Swiper from 'react-id-swiper';
-import Icon from '../components/Icon/'
-import { Header, SearchBar } from '../components/Header/'
+import Icon from '../../components/Icon/'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import shopsService from '@services/shopsService'
+import { throttle } from 'throttle-debounce';
+import location from "@icon/location.svg"
+import down from "@icon/down.svg"
+import search from "@icon/search.svg"
 import './style.scss'
+import './swiper.min.css'
+import { store } from '../../index.js'
+import BackToTop from '@/components/BackToTop/'
 class Index extends Component {
+    constructor() {
+        super()
+        this.state = {
+            toggleSelectLocation: false
+        }
+    }
+
+    handleTogglePage = () => {
+        this.setState({ toggleSelectLocation: true })
+    }
     render() {
         return (
             <div className="index">
-                <Header></Header>
+                <Header location={this.props.location}></Header>
                 <SearchBar></SearchBar>
                 <NavBar></NavBar>
                 <Board></Board>
                 <ShopListTitle></ShopListTitle>
                 <ShopFilter></ShopFilter>
                 <ShopList></ShopList>
+                <BackToTop></BackToTop>
+
+            </div>
+        )
+    }
+}
+
+class Header extends Component {
+    render() {
+        return (
+            <div className="header" >
+                <Location></Location>
+            </div>
+        )
+    }
+}
+
+class Location extends Component {
+    constructor() {
+        super()
+        this.state = {
+            location: {
+                city: '',
+                name: '',
+            }
+        }
+    }
+    componentDidMount() {
+        document.title = "首页"
+        // this.subscribe = store.subscribe(() => {
+        this.setState({
+            location: store.getState().userInfo.location
+        })
+        // })
+    }
+    componentWillUnmount() {
+        // this.subscribe()
+    }
+    render() {
+        return (
+            <div className="location-warp">
+                <Link to="/selectlocation">
+                    <div className="selector">
+                        <img src={location} alt="" className="location-icon" />
+                        <p>{this.state.location.name}</p>
+                        <img src={down} alt="" className="down-icon" />
+                    </div>
+                </Link>
+            </div>
+        )
+    }
+}
+
+class SearchBar extends Component {
+    render() {
+        return (
+            <div className="search-bar">
+                <div className="button">
+                    <a href="/">
+                        <img src={search} alt="" className="search-icon" />
+                        <span>搜索饿了么商家、商品名称</span>
+                    </a>
+                </div>
             </div>
         )
     }
@@ -340,7 +422,7 @@ class ShopFilter extends Component {
                                         className={this.state.activeSortIndex === index ? 'active' : ""}
                                     >
                                         <span>{item.name}</span>
-                                        <img src={require('./mark.png')} alt="" />
+                                        <img src={require('@icon/mark.png')} alt="" />
                                     </li>
                                 )
                             })}
@@ -393,93 +475,58 @@ class ShopFilter extends Component {
 class ShopList extends Component {
     constructor(props) {
         super(props);
-        this.state = { eventButton: false, listData: '' };
-        this.data = [
-            {
-                img: 'https://fuss10.elemecdn.com/3/58/a93fd92d242a7352e9fdb64b7d2eapng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/',
-                brand: true,
-                name: '正新鸡排（中华广场二店）',
-                grade: '4',
-                monthlySales: '444',
-                hummingbirdDelivery: true,
-                minOrderPrice: '20',
-                deliveryPrice: '3',
-                distance: '3.2km',
-                time: '34',
-                label: ['炸鸡炸串'],
-                firstOrder: '新用户下单立减17元',
-                discount: '满25减10，满35减16，满50减25，满70减30',
-                eventNumber: '12',
-                event: ['新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元']
-            },
-            {
-                img: 'https://fuss10.elemecdn.com/3/58/a93fd92d242a7352e9fdb64b7d2eapng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/',
-                brand: true,
-                name: '正新鸡排（中华广场二店）',
-                grade: '4',
-                monthlySales: '444',
-                hummingbirdDelivery: true,
-                minOrderPrice: '20',
-                deliveryPrice: '3',
-                distance: '3.2km',
-                time: '34',
-                label: ['炸鸡炸串'],
-                firstOrder: '新用户下单立减17元',
-                discount: '满25减10，满35减16，满50减25，满70减30',
-                eventNumber: '12',
-                event: ['新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元']
-            },
-            {
-                img: 'https://fuss10.elemecdn.com/3/58/a93fd92d242a7352e9fdb64b7d2eapng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/',
-                brand: true,
-                name: '正新鸡排（中华广场二店）',
-                grade: '4',
-                monthlySales: '444',
-                hummingbirdDelivery: true,
-                minOrderPrice: '20',
-                deliveryPrice: '3',
-                distance: '3.2km',
-                time: '34',
-                label: ['炸鸡炸串'],
-                firstOrder: '新用户下单立减17元',
-                discount: '满25减10，满35减16，满50减25，满70减30',
-                eventNumber: '12',
-                event: ['新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元']
-            },
-            {
-                img: 'https://fuss10.elemecdn.com/3/58/a93fd92d242a7352e9fdb64b7d2eapng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/',
-                brand: true,
-                name: '正新鸡排（中华广场二店）',
-                grade: '4',
-                monthlySales: '444',
-                hummingbirdDelivery: true,
-                minOrderPrice: '20',
-                deliveryPrice: '3',
-                distance: '3.2km',
-                time: '34',
-                label: ['炸鸡炸串'],
-                firstOrder: '新用户下单立减17元',
-                discount: '满25减10，满35减16，满50减25，满70减30',
-                eventNumber: '12',
-                event: ['新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元', '新用户下单立减17元']
-            },
-
-        ]
-
+        this.state = { eventButton: false, listData: [], loading: false };
     }
     unfoldEvent = () => {
         this.setState({
             eventButton: !this.state.eventButton
         })
     }
-    componentWillMount() {
-        let data = this.data
-        for (let i = 0; i < data.length; i++) {
-            data[i].unfold = false;
-        }
-        this.setState({
-            listData: data
+    lazyLoad = (loadDistance, limit) => {
+        let times = 1
+        let skip = limit
+        return throttle(300, () => {
+            if (this.state.loading) return
+
+            let currentDistance = document.documentElement.scrollTop
+            let maxMoveDistance = document.body.offsetHeight - window.innerHeight
+            if (maxMoveDistance - currentDistance < loadDistance) {
+                this.warpShopsService(limit, skip)()
+                times += 1
+                skip = limit * times
+            }
         })
+    }
+    warpShopsService = (limit, skip) => {
+        return async () => {
+
+            this.setState({
+                loading: true,
+            })
+            const respone = await shopsService.get(limit, skip)
+            let data = respone.data.data
+            for (let i = 0; i < data.length; i++) {
+                data[i].unfold = false;
+            }
+            if (data.length === 0) {
+                window.removeEventListener('scroll', this.lazyLoadFunction)
+            }
+            this.setState({
+                listData: [...this.state.listData, ...data],
+                loading: false
+            })
+
+
+        }
+    }
+
+    componentDidMount() {
+        this.lazyLoadFunction = this.lazyLoad(600, 5)
+        this.warpShopsService(5)()
+        window.addEventListener('scroll', this.lazyLoadFunction)
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.lazyLoadFunction)
     }
     render() {
         return (
@@ -500,8 +547,8 @@ class ShopList extends Component {
                                 <div className="section2">
                                     <div className="left">
                                         <div className="star-warper">
-                                            <div><img src={require("./hollowStar.svg")} alt="" /></div>
-                                            <div style={{ width: (item.grade / 5) * 100 + '%' }}>  <img src={require("./star.svg")} alt="" /></div>
+                                            <div><img src={require("@icon/hollowStar.svg")} alt="" /></div>
+                                            <div style={{ width: (item.grade / 5) * 100 + '%' }}>  <img src={require("@icon/star.svg")} alt="" /></div>
                                         </div>
                                         <span className="grade">{item.grade}</span>
                                         <span >月售{item.monthlySales}单</span>
@@ -534,7 +581,7 @@ class ShopList extends Component {
                                             'listData[index][unfold]': true
                                         })
                                         item.unfold = !item.unfold
-                                    }} ><span>{item.event.length + 2}个活动</span><img className={this.state.eventButton ? '' : 'rotate'} src={require('./dropdown1.svg')} alt="" /></div>
+                                    }} ><span>{item.event.length + 2}个活动</span><img className={this.state.eventButton ? '' : 'rotate'} src={require('@icon/dropdown1.svg')} alt="" /></div>
                                 </div>
                                 <div className="section6">
                                     <div> <span>满<span>满</span></span><p>{item.discount}</p></div>
@@ -550,11 +597,19 @@ class ShopList extends Component {
                         </div>
                     )
                 })}
+                <div className="loading">
+                    {this.state.loading ?
+                        <div><FontAwesomeIcon icon="spinner" className="spinner" />正在加载... </div> : ''}
+                </div>
             </div>
         )
     }
 
 }
+
+
+
+
 
 
 

@@ -1,0 +1,157 @@
+.Profile {
+    .header {
+        text-align: center;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        img {
+            width: 3.2vw;
+            position: absolute;
+            top: 50%; // margin-top: -1.6vw;
+            transform: translateY(-50%);
+            left: 10px;
+        }
+        p {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 11.8vw;
+        }
+    }
+    .info {
+        color: #fff;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        .warp {
+            padding: 6.666667vw 4vw;
+            display: flex;
+            align-items: center;
+            .login {
+                margin-left: 4.8vw;
+                flex-grow: 1;
+                h1 {
+                    margin-bottom: 2.133333vw;
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 12px;
+                }
+            }
+            img {
+                border-radius: 50%;
+            }
+            .mobile {
+                fill: #fff;
+                width: 1.866667vw;
+                height: 2.933333vw;
+                margin-right: .666667vw;
+            }
+            .arrow-right {
+                width: 2.666667vw;
+                height: 3vw;
+                fill: #fff;
+            }
+        }
+    }
+    .money {
+        border-bottom: 1px solid #ddd;
+        height: 22.4vw;
+        display: flex;
+        background-color: #fff;
+        .warp {
+            width: 33.33%;
+            border-right: 1px solid #ddd;
+            .item {
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    width: 6.933333vw;
+                    height: 6.933333vw;
+                    line-height: 1.2;
+                }
+                p {
+                    margin-top: 2.333333vw;
+                    color: #666;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    .bar-group {
+        .bar {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+            .warp {
+                padding-left: 6.666667vw;
+                display: flex;
+                align-items: center;
+                .address {
+                    width: 4.8vw;
+                    height: 4.8vw;
+                    margin-right: 2.666667vw;
+                    margin-left: -2.666667vw;
+                }
+                .arrow-right {
+                    width: 2.666667vw;
+                    height: 2.666667vw;
+                    fill: #bbb;
+                }
+                .address-arrow {
+                    padding: 3.733333vw 2.666667vw 3.733333vw 0;
+                    flex-grow: 1;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+            &:nth-child(odd) {
+                border-bottom: 0px solid #ddd;
+                .address-arrow {
+                    border-bottom: 1px solid #ddd;
+                }
+            }
+            &:nth-child(even) {
+                border-top: 0px solid #ddd;
+            }
+            &:nth-child(1) {
+                margin-top: 2.666667vw;
+            }
+        }
+    }
+    .bar-single {
+        margin-top: 2.666667vw;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+        .warp {
+            padding-left: 6.666667vw;
+            display: flex;
+            align-items: center;
+            .address {
+                width: 4.8vw;
+                height: 4.8vw;
+                margin-right: 2.666667vw;
+                margin-left: -2.666667vw;
+            }
+            .arrow-right {
+                width: 2.666667vw;
+                height: 2.666667vw;
+                fill: #bbb;
+            }
+            .address-arrow {
+                padding: 3.733333vw 2.666667vw 3.733333vw 0;
+                flex-grow: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+}

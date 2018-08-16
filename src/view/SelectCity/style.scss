@@ -1,0 +1,87 @@
+.SelectCity {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 1001;
+    overflow-y: scroll;
+    background-color: #f4f4f4;
+    .warp {
+        position: relative;
+        font-size: 14.56px;
+        background-color: #fff;
+        .header {
+            position: sticky;
+            background-image: linear-gradient(90deg, #0af, #0085ff);
+            text-align: center;
+            color: #fff;
+            top: 0;
+            z-index: 999;
+            img {
+                left: 3.333333vw;
+                top: 3.333333vw;
+                position: absolute;
+                width: 5.333333vw;
+                height: 5.333333vw;
+            }
+            p {
+                line-height: 11.733333vw;
+            }
+        }
+        .select {
+            position: sticky;
+            top: 11.723332vw;
+            z-index: 999;
+            .input {
+                height: 11.733333vw;
+                background-image: linear-gradient(90deg, #0af, #0085ff);
+                text-align: center;
+                input {
+                    font-size: 12px;
+                    margin-top: 1.866667vw;
+                    box-sizing: border-box;
+                    background: #ffffff;
+                    height: 8vw;
+                    color: #999;
+                    border-radius: 4vw;
+                    width: 100%;
+                    padding-left: 10vw;
+                    width: 86.666667vw;
+                }
+                img {
+                    position: absolute;
+                    left: 9.866667vw;
+                    top: 4vw;
+                    width: 3.733333vw;
+                }
+            }
+        }
+        .list {
+            position: relative;
+            .title {
+                border-bottom: 1px solid #ddd;
+                color: #666;
+                background: #f5f5f5;
+                padding: 3.733333vw 0 1.866667vw 4vw;
+            }
+            .item {
+                margin-left: 4vw;
+                line-height: 13.333333vw;
+                border-bottom: 1px solid #ddd;
+                &:last-child {
+                    border-bottom: 0px;
+                }
+            }
+        }
+    }
+    .letterBar {
+        position: fixed;
+        top: 40vw;
+        right: 3.666667vw;
+        color: #999;
+        li {
+            line-height: 5.333333vw;
+            font-size: 12px;
+        }
+    }
+}

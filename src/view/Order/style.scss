@@ -1,0 +1,47 @@
+.Order{
+    .header {
+        text-align: center;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        img {
+            width: 3.2vw;
+            position: absolute;
+            top: 50%; // margin-top: -1.6vw;
+            transform: translateY(-50%);
+            left: 10px;
+        }
+        p {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 11.8vw;
+        }
+    }
+    section{
+        margin-top: 26.666667vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        img{
+            width: 53.333333vw;
+        }
+        p{
+            margin: 3.333333vw 0 2.666667vw;
+            color: #6a6a6a;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        button{
+            width: 32vw;
+            padding: 2.666667vw;
+            border-radius: .533333vw;
+            background-color: #56d176;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+}

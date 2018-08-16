@@ -1,0 +1,200 @@
+.Explore {
+    .header {
+        text-align: center;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        img {
+            width: 3.2vw;
+            position: absolute;
+            top: 50%; // margin-top: -1.6vw;
+            transform: translateY(-50%);
+            left: 10px;
+        }
+        p {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 11.8vw;
+        }
+    }
+    section {
+        background: #fff;
+        margin-bottom: 2.8vw;
+        border-top: 1px solid #eee;
+    }
+    .banner {
+        img {
+            width: 100%;
+        }
+    }
+    .three {
+        display: flex;
+        &>div {
+            &:nth-child(1) {
+                padding: 5.866667vw 2.933333vw 1.6vw 4.266667vw;
+                height: 42.666667vw;
+                border-right: 1px #ededed solid;
+                position: relative;
+                .warp {
+                    h1 {
+                        color: rgb(255, 153, 0);
+                        margin-bottom: 1.6vw;
+                        font-size: 15.3px;
+                    }
+                    p {
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+                img {
+                    position: absolute;
+                    width: 20vw;
+                    right: 5vw;
+                    bottom: 5vw;
+                }
+            }
+            width: 50%;
+            &:nth-child(2) {
+                .item {
+                    height: 50%;
+                    &:nth-child(1) {
+                        border-bottom: 1px #ededed solid;
+                    }
+                    .warp {
+                        box-sizing: border-box;
+                        position: relative;
+                        height: 100%;
+                        padding: 5vw 0 0 5vw;
+                        h1 {
+                            margin-bottom: 1.6vw;
+                            font-size: 15.3px;
+                            color: rgb(27, 169, 225);
+                        }
+                        p {
+                            font-size: 12px;
+                            color: #999;
+                        }
+                        img {
+                            position: absolute;
+                            right: 2vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 12vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .gift{
+        .title{
+            font-weight: 700;
+            color: #333;
+            padding-top: 5.2vw;
+            font-size: 18px;
+            .line1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .line-left{
+                    border: 1px solid #333;
+                    height: 0;
+                    width: 4vw;
+                    margin: 0 1.733333vw;
+                    position: relative;
+                    &::after{
+                        height: 1.333333vw;
+                        width: 1.333333vw;
+                        border-radius: 50%;
+                        background-color: #333;
+                        content: "";
+                        position: absolute;
+                        right: -.666667vw;
+                        top: -.666667vw;
+                    }
+                }
+                .line-right{
+                    width: 4vw;
+                    height: 0;
+                    border: 1px solid #333;
+                    margin-left: 1.733333vw;
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        left: -.666667vw;
+                        top: -.666667vw;
+                        content: "";
+                        border-radius: 50%;
+                        height: 1.333333vw;
+                        width: 1.333333vw;
+                        background-color: #333;
+                    }
+                }
+                .alarm{
+                    width: 4.4vw;
+                    height: 4.4vw;
+                    margin-right: 1vw;
+                }
+            }
+            .line2{
+                text-align: center;
+                color: #999;
+                font-size: 10px;
+                font-weight: 300;
+                padding-bottom: 2.133333vw;
+            }
+        }
+        .merchandise{
+            display: flex;
+            padding: 3.2vw 0 4vw 4vw;
+            .item{
+                width: 33.333%;
+                position: relative;
+                padding-right: 1.6vw;
+                box-sizing: border-box;
+                .label{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: 10px;
+                    color: #fff;
+                    background: #413d3c;
+                    padding: .666667vw;
+                }
+                img{
+                    height: 29.333333vw;
+                    margin-bottom: 2.533333vw;
+                }
+                .name{
+                    font-size: 12px;
+                    color: #333;
+                    margin-bottom: 1.333333vw;
+                }
+                .price{
+                    display: inline-block;
+                    color: #ff5339;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    line-height: 6.4vw;
+                    height: 6.4vw;
+                    .small{ 
+                        margin-left: .933333vw;
+                        color: #aaa;
+                        font-size: 9.5px;
+                    vertical-align: middle;
+                    }
+                }
+            }
+        }
+        .more{
+            padding: 4vw 0 ;
+        text-align: center;
+        font-size: 12px;
+        color: #999;
+        }
+    }
+    
+}
