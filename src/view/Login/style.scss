@@ -1,3 +1,128 @@
-.Login{
-    
+.Login {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    padding-top: 40px;
+    .warp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        margin: 0 auto;
+        .logo {
+            width: 140px;
+            height: 56px;
+        }
+        .toggleLoginWay {
+            margin-top: 40px;
+            display: flex;
+            .item {
+                font-size: 14px;
+                padding-bottom: 4px;
+                cursor: pointer;
+                display: block;
+                width: 58px;
+                margin: 0 20px;
+                color: #999;
+            }
+            .active {
+                color: #2395ff;
+                font-weight: 700;
+                border-bottom: 2px solid #2395ff;
+            }
+        }
+        form {
+            text-align: center;
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .simpleInput {
+            position: relative;
+            margin-top: 16px;
+            height: 48px;
+            font-size: 14px;
+            background: #fff;
+            width: 100%;
+            input {
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                padding-left: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                color: #333;
+                -webkit-appearance: none;
+                &:focus {
+                    border-color: #0089dc;
+                }
+            }
+            button {
+                color: #ccc;
+                font-size: 14px;
+                background: none;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .active {
+                color: #2395ff;
+                cursor: pointer;
+            }
+        }
+        .tip {
+            margin-top: 12px;
+            color: #999;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: left;
+            position: relative;
+            a {
+                color: #2395ff;
+            }
+        }
+        .loginButton {
+            display: block;
+            width: 100%;
+            height: 42px;
+            margin-top: 30px;
+            border-radius: 4px;
+            background: #4cd96f;
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            line-height: 42px;
+        }
+        .aboutMe {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    }
+    .message {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -8vw;
+        padding: 1vw 2vw;
+        background: #333;
+        border-radius: 5vw;
+        line-height: 5vw;
+        white-space: nowrap;
+        height: 5vw;
+        color: white;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+    }
+    .messageActive {
+        opacity: 1;
+    }
 }

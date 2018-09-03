@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { store } from '@/index.js'
 import './style.scss'
@@ -18,16 +17,14 @@ class SelectLocation extends Component {
         this.isResquest = false
     }
     componentDidMount() {
-        let location = store.getState().userInfo.location
-        this.setState({ city: location.city })
         this.debounceSearch = debounce(1000, async (query) => {
             let region = store.getState().userInfo.location.city
             if (region !== '选择城市' && query !== '') {
                 let respone = await mapService.placeSuggestion(query, region)
                 this.searchTips = respone.data.tips
-                this.isResquest = false
                 this.forceUpdate()
             }
+            this.isResquest = false
         })
     }
     search = (e) => {
@@ -44,24 +41,24 @@ class SelectLocation extends Component {
     handleClickItem = (e) => {
         let name = e.currentTarget.querySelector('h3').innerText
         this.props.dispatch(manualAddName(name))
-        window.localStorage.setItem('name', name)
-        window.history.back()
+        window.history.go(-2)
     }
     render() {
+        let city = store.getState().userInfo.location.city
         return (
-            <div className="SelectLocation">
+            <div className={this.props.toggle ? 'SelectLocation slide-active' : 'SelectLocation'}>
                 <div className='warp'>
                     <div className="header" >
                         <img onClick={function () { window.history.back() }} src={require('@icon/leftArrow.svg')} alt="" />
                         <p>选择收货地址</p>
                     </div>
                     <div className="select">
-                        <Link to="/selectCity" className="selectCity">
+                        <a onClick={() => { window.history.go(-1) }} className="selectCity">
                             <div >
-                                <span>{this.state.city}</span>
+                                <span>{city}</span>
                                 <img src={require('@icon/dropdown.svg')} alt="" />
                             </div>
-                        </Link>
+                        </a>
                         <div className="input">
                             <img src={require("@icon/search.svg")} alt="" />
                             <input onChange={this.search} type="search" placeholder="请输入地址" />
@@ -81,6 +78,7 @@ class SelectLocation extends Component {
                     </div>
                 </div>
             </div>
+
         )
     }
 }

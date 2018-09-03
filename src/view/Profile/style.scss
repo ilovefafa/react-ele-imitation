@@ -21,6 +21,9 @@
         }
     }
     .info {
+        a {
+            color: #fff;
+        }
         color: #fff;
         background-image: linear-gradient(90deg, #0af, #0085ff);
         .warp {
@@ -80,11 +83,63 @@
                     color: #666;
                     font-weight: 700;
                 }
+                .luckybag {
+                    fill: rgb(255, 95, 62);
+                }
+                .profile-coins {
+                    fill: rgb(106, 194, 11);
+                }
             }
         }
     }
-    .bar-group {
-        .bar {
+    .bar-warp {
+        a {
+            color: black;
+        }
+        .bar-group {
+            .bar {
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+                background: #fff;
+                .warp {
+                    padding-left: 6.666667vw;
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        width: 4.8vw;
+                        height: 4.8vw;
+                        margin-right: 2.666667vw;
+                        margin-left: -2.666667vw;
+                    }
+                    .arrow-right {
+                        width: 2.666667vw;
+                        height: 2.666667vw;
+                        fill: #bbb;
+                    }
+                    .address-arrow {
+                        padding: 3.733333vw 2.666667vw 3.733333vw 0;
+                        flex-grow: 1;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+                &:nth-child(odd) {
+                    border-bottom: 0px solid #ddd;
+                    .address-arrow {
+                        border-bottom: 1px solid #ddd;
+                    }
+                }
+                &:nth-child(even) {
+                    border-top: 0px solid #ddd;
+                }
+                &:nth-child(1) {
+                    margin-top: 2.666667vw;
+                }
+            }
+        }
+        .bar-single {
+            margin-top: 2.666667vw;
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             background: #fff;
@@ -92,7 +147,7 @@
                 padding-left: 6.666667vw;
                 display: flex;
                 align-items: center;
-                .address {
+                svg {
                     width: 4.8vw;
                     height: 4.8vw;
                     margin-right: 2.666667vw;
@@ -111,47 +166,9 @@
                     align-items: center;
                 }
             }
-            &:nth-child(odd) {
-                border-bottom: 0px solid #ddd;
-                .address-arrow {
-                    border-bottom: 1px solid #ddd;
-                }
-            }
-            &:nth-child(even) {
-                border-top: 0px solid #ddd;
-            }
-            &:nth-child(1) {
-                margin-top: 2.666667vw;
-            }
         }
     }
-    .bar-single {
-        margin-top: 2.666667vw;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        background: #fff;
-        .warp {
-            padding-left: 6.666667vw;
-            display: flex;
-            align-items: center;
-            .address {
-                width: 4.8vw;
-                height: 4.8vw;
-                margin-right: 2.666667vw;
-                margin-left: -2.666667vw;
-            }
-            .arrow-right {
-                width: 2.666667vw;
-                height: 2.666667vw;
-                fill: #bbb;
-            }
-            .address-arrow {
-                padding: 3.733333vw 2.666667vw 3.733333vw 0;
-                flex-grow: 1;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
+    .download {
+        fill: #3cabff;
     }
 }

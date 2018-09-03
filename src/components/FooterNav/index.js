@@ -54,10 +54,14 @@ class Item extends Component {
         }
         return (
             itemData.items.map((item, index) => {
+                let { pathname } = this.props.location
                 return (
-                    // <NavLink isActive={() => { if (this.state.activeIndex !== index) this.setState({ activeIndex: index }) }} exact={item.link === "/"} to={item.link} className="item" key={index}>
                     <NavLink exact={item.link === "/"} to={item.link} className="item" key={index}>
-                        <Icon file={itemData.file} name={this.props.location.pathname === item.link ? item.activeIcon : item.icon}></Icon>
+                        <Icon file={itemData.file} name={
+                            item.link === pathname || (item.link !== '/' && pathname.indexOf(item.link) !== -1) ?
+                                item.activeIcon :
+                                item.icon}>
+                        </Icon>
                         <p>{item.name}</p>
                     </NavLink>
 

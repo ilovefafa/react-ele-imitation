@@ -1,6 +1,6 @@
 @import '../../css/mixin.scss';
 .index {
-    .header {
+    .index-header {
         a {
             display: block;
             width: 100%;
@@ -44,7 +44,6 @@
             }
         }
     }
-    
     .search-bar {
         position: sticky;
         top: 0;
@@ -573,33 +572,34 @@
         .warp {}
         .active {}
     }
-}
-
-.shade {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    background: rgba(0, 0, 0, .5);
-    transition: all .3s ease-in-out;
-}
-
-.star-warper {
-    display: inline-block;
-    position: relative; // width: 100%;
-    div {
-        &:first-child {}
-        &:last-child {
-            position: absolute;
-            left: 0;
-            top: 0;
-            overflow: hidden;
-        }
-        img {
-            height: 2.666667vw;
-            width: 14.933333vw;
+    .slide-active {
+        transform: translateX(0%);
+    }
+    .shade {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        background: rgba(0, 0, 0, .5);
+        transition: all .3s ease-in-out;
+    }
+    .star-warper {
+        display: inline-block;
+        position: relative; // width: 100%;
+        div {
+            &:first-child {}
+            &:last-child {
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+            }
+            img {
+                height: 2.666667vw;
+                width: 14.933333vw;
+            }
         }
     }
 }

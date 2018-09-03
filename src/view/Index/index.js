@@ -1,40 +1,81 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
 import Swiper from 'react-id-swiper';
 import Icon from '../../components/Icon/'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import shopsService from '@services/shopsService'
+import BackToTop from '@/components/BackToTop/'
 import { throttle } from 'throttle-debounce';
+import { store } from '@/index.js'
+import { connect } from 'react-redux'
+import { locationAction } from '@/redux/actions/'
+//css
 import location from "@icon/location.svg"
 import down from "@icon/down.svg"
 import search from "@icon/search.svg"
 import './style.scss'
 import './swiper.min.css'
-import { store } from '../../index.js'
-import BackToTop from '@/components/BackToTop/'
+//component
+import SelectCity from './view/SelectCity/'
+import SelectLocation from './view/SelectLocation/'
+import FullLoading from '../FullLoading/'
+
 class Index extends Component {
     constructor() {
         super()
         this.state = {
-            toggleSelectLocation: false
+            toggleSelectLocation: false,
+            goSelectCity: false,
+            goSelectLocation: false,
         }
     }
-
     handleTogglePage = () => {
         this.setState({ toggleSelectLocation: true })
     }
+    goSelectCity = () => {
+        this.setState({ goSelectCity: true })
+        if (window.history.state === null || (window.history.state.name !== 'selectCity')) {
+            window.history.pushState({ name: 'selectCity' }, "test", "")
+        }
+        window.onpopstate = () => {
+            let name = window.history.state && window.history.state.name
+            if (name === 'selectCity') {
+                this.setState({ goSelectLocation: false, })
+                return
+            }
+            if (name !== 'selectCity' || 'selectLocation') {
+                this.setState({ goSelectLocation: false, goSelectCity: false })
+                return
+            }
+        };
+    }
+    componentDidMount() {
+        document.title = "首页"
+    }
+    componentWillUnmount() {
+        window.onpopstate = ''
+    }
+    componentDidUpdate() {
+        let { popupManual } = this.props
+        if (popupManual) {
+            this.goSelectCity()
+            this.props.dispatch(locationAction({ popupManual: false }))
+        }
+    }
     render() {
+        let { isFetch } = this.props
         return (
             <div className="index">
-                <Header location={this.props.location}></Header>
-                <SearchBar></SearchBar>
-                <NavBar></NavBar>
-                <Board></Board>
-                <ShopListTitle></ShopListTitle>
-                <ShopFilter></ShopFilter>
-                <ShopList></ShopList>
-                <BackToTop></BackToTop>
-
+                <Header {...this.props} goSelectCity={this.goSelectCity}></Header>
+                <SearchBar />
+                <NavBar />
+                <Board />
+                <ShopListTitle />
+                <ShopFilter />
+                <ShopList />
+                <BackToTop />
+                <SelectCity toggle={this.state.goSelectCity} next={() => { this.setState({ goSelectLocation: true }) }}></SelectCity>
+                <SelectLocation toggle={this.state.goSelectLocation}></SelectLocation>
+                {isFetch ? <FullLoading /> : ''}
             </div>
         )
     }
@@ -42,45 +83,18 @@ class Index extends Component {
 
 class Header extends Component {
     render() {
+        let { name = 'name', city = 'city' } = this.props
         return (
-            <div className="header" >
-                <Location></Location>
-            </div>
-        )
-    }
-}
-
-class Location extends Component {
-    constructor() {
-        super()
-        this.state = {
-            location: {
-                city: '',
-                name: '',
-            }
-        }
-    }
-    componentDidMount() {
-        document.title = "首页"
-        // this.subscribe = store.subscribe(() => {
-        this.setState({
-            location: store.getState().userInfo.location
-        })
-        // })
-    }
-    componentWillUnmount() {
-        // this.subscribe()
-    }
-    render() {
-        return (
-            <div className="location-warp">
-                <Link to="/selectlocation">
-                    <div className="selector">
-                        <img src={location} alt="" className="location-icon" />
-                        <p>{this.state.location.name}</p>
-                        <img src={down} alt="" className="down-icon" />
-                    </div>
-                </Link>
+            <div className="index-header" >
+                <div className="location-warp">
+                    <a onClick={this.props.goSelectCity}>
+                        <div className="selector">
+                            <img src={location} alt="" className="location-icon" />
+                            <p>{city + name}</p>
+                            <img src={down} alt="" className="down-icon" />
+                        </div>
+                    </a>
+                </div>
             </div>
         )
     }
@@ -607,10 +621,8 @@ class ShopList extends Component {
 
 }
 
+const mapStateToProps = (state) => ({
+    ...state.userInfo.location
+})
 
-
-
-
-
-
-export default Index 
+export default connect(mapStateToProps)(Index)

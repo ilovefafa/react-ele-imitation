@@ -1,72 +1,79 @@
 import React, { Component } from 'react';
 import Index from './view/Index/index.js'
-import SelectCity from './view/SelectCity/'
-import SelectLocation from './view/SelectLocation/'
 import Explore from './view/Explore/'
 import Order from './view/Order/'
 import Profile from './view/Profile/'
 import Login from './view/Login/'
+import Page404 from './view/404/'
+import Share from './view/Share/'
+import RouteTest from './routeTest'
 import FooterNav from './components/FooterNav/'
 import { connect } from 'react-redux'
-import { getLocationAuto } from './services/mapService'
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
 } from 'react-router-dom'
+import mapService from '@/services/mapService'
+import { locationAction } from '@/redux/actions/'
+import { isFetch } from '@/redux/actions/'
 //css reset
 import './css/normalize.css'
 import './css/reset.css'
 import './css/global.scss'
 //svg sprite
-import icons1 from './assets/images/icons1.sprite.svg'
 import './assets/images/icons2.sprite.svg'
 //font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStroopwafel, faSpinner } from '@fortawesome/free-solid-svg-icons'
-// import { connect } from 'net';
 library.add(faStroopwafel, faSpinner)
-
-
-
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      location: ''
+      isFetch: true,
     }
   }
+  getLocation = async () => {
+    isFetch(true)
+    let location = await mapService.getLocationAuto()
+    if (location) {
+      location.locationWay = 'auto'
+      location.popupManual = false
+      this.props.dispatch(locationAction(location))
+    } else {
+      location = {
+        locationWay: 'manual',
+        popupManual: true,
+      }
+      this.props.dispatch(locationAction(location))
+    }
+    isFetch(false)
+  }
+  componentWillMount() {
+    this.getLocation()
+  }
+
   render() {
     return (
       <Router>
         <div className="app">
-          <img src={icons1} alt="" />
           <Switch>
-            <Route exact path="/" render={(props) => <Index {...props} location={this.state.location} />} />
-            <Route path="/selectlocation" component={SelectLocation} />
-            <Route path="/selectCity" render={(props) => <SelectCity {...props} />} />
-            <Route path="/explore" component={Explore} />
+            <Route exact path="/" render={(props) => <Index {...props} />} />
             <Route path="/order" component={Order} />
+            <Route path="/explore" component={Explore} />
             <Route path="/profile" component={Profile} />
             <Route path="/login" component={Login} />
+            <Route path="/routetest" component={RouteTest} />
+            <Route path='/share' component={Share} />
+            <Route component={Page404} />
           </Switch>
           <FooterNav></FooterNav>
         </div >
       </Router>
     );
   }
-  async componentDidMount() {
-    try {
-      // let location = await getLocationAuto()
-      // let location = { city: '广州', title: '番禺广场' }
-      // this.props.dispatch(locationAction(location))
-      // this.setState({ location: `${location.surroundingPois[0].city}${location.surroundingPois[0].title}` })
-    }
-    catch (err) {
-    }
-  }
 }
 
-// export default App;
 export default connect()(App)

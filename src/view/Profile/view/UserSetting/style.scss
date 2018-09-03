@@ -1,0 +1,84 @@
+.UserSetting {
+    .bar {
+        border-top: 1px solid #eee;
+        background: #fff;
+        padding: 3.733333vw;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .left {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            align-items: center;
+            .mobile {
+                padding-right: 2vw;
+                height: 4.266667vw;
+                width: 4.266667vw;
+            }
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            color: #666;
+            * {
+                &:first-child {
+                    margin-right: 5px;
+                }
+            }
+            .not-set {
+                color: #0097ff;
+            }
+            .head-photo {
+                display: inline-block;
+                background: url('https://shadow.elemecdn.com/faas/h5/static/sprite.3ffb5d8.png');
+                width: 68.48px;
+                height: 68.48px;
+                border-radius: 50%;
+                background-position: 0px 68.48px;
+                background-size: 68.48px;
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            p {
+                font-size: 16px;
+            }
+            .arrow-right {
+                fill: #ddd;
+                height: 4.3vw;
+                width: 4.3vw;
+            }
+        }
+    }
+    .head {
+        padding: 2.666667vw 3.733333vw;
+    }
+    h2 {
+        margin: 4.266667vw 0 1.866667vw 3.733333vw;
+        color: #999;
+        font-size: 12px;
+    }
+    .login-out {
+        font-weight: 700;
+        background-color: #fff;
+        padding: 3.733333vw 0;
+        margin: 5.333333vw 0;
+        color: #ff5339;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+    }
+}

@@ -1,28 +1,63 @@
-const userInfo = (state = {}, action) => {
+import { combineReducers } from 'redux'
+
+function location(state = {}, action) {
   switch (action.type) {
     case 'LOCATION':
       return {
         ...state,
-        location: action.location
+        ...action.location
+      }
+    case 'IS_LOCATION_FETCH':
+      return {
+        ...state,
+        isFetch: action.isFetch
+      }
+    case 'MANUAL_ADD_NAME':
+      return {
+        ...state,
+        name: action.name
       }
     case 'MANUAL_ADD_CITY':
       return {
         ...state,
-        location: {
-          city: action.city
-        }
-
-      }
-    case 'MANUAL_ADD_NAME':
-      // let { location } = state
-      // location.name = action.name
-      return {
-        ...state,
-        location: { ...state.location, name: action.name }
+        name: " ",
+        city: action.city
       }
     default:
       return state
   }
 }
+
+function info(state = {}, action) {
+  switch (action.type) {
+    case 'GET_USER_INFO':
+      return {
+        ...state,
+        ...action.info
+      }
+    case 'UPDATE_USERINFO':
+      return {
+        ...state,
+        ...action.data
+      }
+    default:
+      return state
+  }
+}
+
+function isLogin(state = {}, action) {
+  switch (action.type) {
+    case 'LOGIN':
+      return action.isLogin
+    default:
+      return state
+  }
+}
+
+const userInfo = combineReducers({
+  isLogin,
+  location,
+  info
+})
 
 export default userInfo

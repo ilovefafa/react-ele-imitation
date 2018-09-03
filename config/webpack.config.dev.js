@@ -15,6 +15,7 @@ const paths = require('./paths');
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
+// const publicPath = 'http://localhost:3002/';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
@@ -84,7 +85,7 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       '@services': path.resolve(__dirname, '../src/services'),
-      '@icon': path.resolve(__dirname, '../src/view/images/icon'),
+      '@icon': path.resolve(__dirname, '../src/assets/images/icon'),
       '@action': path.resolve(__dirname, '../src/redux/actions/'),
       '@reducer': path.resolve(__dirname, '../src/redux/reducers'),
       '@': path.resolve(__dirname, '../src'),

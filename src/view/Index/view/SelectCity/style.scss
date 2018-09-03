@@ -3,6 +3,8 @@
     width: 100%;
     top: 0;
     bottom: 0;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
     z-index: 1001;
     overflow-y: scroll;
     background-color: #f4f4f4;
@@ -37,6 +39,7 @@
                 background-image: linear-gradient(90deg, #0af, #0085ff);
                 text-align: center;
                 input {
+                    // text-align: center;
                     font-size: 12px;
                     margin-top: 1.866667vw;
                     box-sizing: border-box;
@@ -45,7 +48,7 @@
                     color: #999;
                     border-radius: 4vw;
                     width: 100%;
-                    padding-left: 10vw;
+                    padding-left: 12vw;
                     width: 86.666667vw;
                 }
                 img {

@@ -5,6 +5,7 @@ let geolocation = new BMap.Geolocation();
 let getLocationAuto = () => {
     return new Promise((resolve, reject) => {
         geolocation.getCurrentPosition(function (r) {
+            if (r.point.lat === 0) return resolve(false)
             if (this.getStatus() === 0) {
                 var gc = new BMap.Geocoder();
                 gc.getLocation(r.point, function (rs) {
@@ -33,7 +34,8 @@ function placeSuggestion(keywords, region) {
             city: region,
             city_limit: true,
             key: '620a9880be9de263ef4b4fea4bdce3a2',
-        }
+        },
+        withCredentials: false
     })
 }
 

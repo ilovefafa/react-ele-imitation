@@ -3,11 +3,17 @@ import './style.scss'
 
 class Icon extends Component {
     render() {
-        const { file, name } = this.props
+        const { file, name, url } = this.props
         if (file) {
             return (
                 <svg className={`${name}`} >
                     <use xlinkHref={`#${file}_${name}`} />
+                </svg>
+            )
+        } else if (url) {
+            return (
+                <svg className={`${name}`} >
+                    <use xlinkHref={`${url}#${name}`} />
                 </svg>
             )
         } else {

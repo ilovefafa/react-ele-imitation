@@ -1,25 +1,35 @@
+//common
 import React from 'react';
 import ReactDOM from 'react-dom';
+//component
 import App from './App';
+import MessageJs from '@/components/MessageJS/'
+//redux
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { PersistGate } from 'redux-persist/es/integration/react'
+import configureStore from './redux/configureStore.js'
+//ServiceWorker
 import registerServiceWorker from './registerServiceWorker';
-import rootReducer from './redux/reducers'
-let initialState = {
-    userInfo: {
-        location: {
-            city: window.localStorage.getItem('city') || '选择城市',
-            name: window.localStorage.getItem('name') || ''
-        }
-    }
+const { persistor, store } = configureStore()
+//global import
+window.$store = store;
+window.$message = MessageJs;
+
+const onBeforeLift = () => {
+    // take some action before the gate lifts
 }
-const store = createStore(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-console.log('' || 2)
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <PersistGate
+            //   loading={<Loading />}
+            loading={null}
+            onBeforeLift={onBeforeLift}
+            persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>, document.getElementById('root'));
-registerServiceWorker();
 
+registerServiceWorker();
 
 export { store } 

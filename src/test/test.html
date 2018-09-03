@@ -10,49 +10,35 @@
 
 <body>
     <ul>
-        <li>
-            <a href="#/">turn white</a>
-        </li>
-        <li>
-            <a href="#/blue">turn blue</a>
-        </li>
-        <li>
-            <a href="#/green">turn green</a>
-        </li>
+        <div class="test">
+            div1
+            <div>
+                div2
+            </div>
+        </div>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
     </ul>
 </body>
 
 <style>
-    .test {
-        height: 200px;
-        width: 100%;
-        background: black;
-        position: relative;
-    }
-
-    .ab1 {
-        position: absolute;
-        height: 100px;
-        width: 50%;
-        background: yellow;
-        top: 0;
-    }
-
-    .ab2 {
-        /* position: relative; */
-        height: 100px;
-        width: 50%;
-        background: red;
+    ul .test:nth-child(1) {
+        background: aqua;
     }
 </style>
 <script>
-    toggleTodo = id => ({
-        type: 'TOGGLE_TODO',
-        id
-    })
+    function a() {
+        return {
+            ...{ name: '1' },
+            ...{ name: '2' }
+        }
+    }
 
-    let a = toggleTodo(3)
-    console.log(a)
+
+    console.log(a())
+
 </script>
 
 </html>

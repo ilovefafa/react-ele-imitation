@@ -7,6 +7,8 @@
     z-index: 1001;
     overflow-y: scroll;
     background-color: #f4f4f4;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
     .warp {
         font-size: 14.56px;
         background-color: #fff;

@@ -1,3 +1,27 @@
+import { store } from '@/index.js'
+
+export const updateUserInfo = (data) => (store.dispatch(
+    {
+        type: 'UPDATE_USERINFO',
+        data
+    }
+))
+
+
+export const isLogin = (isLogin) => (store.dispatch(
+    {
+        type: 'LOGIN',
+        isLogin
+    }
+))
+
+export const isFetch = (isFetch) => (store.dispatch(
+    {
+        type: 'IS_LOCATION_FETCH',
+        isFetch
+    }
+))
+
 export const locationAction = (location) => (
     {
         type: 'LOCATION',
@@ -16,5 +40,13 @@ export const manualAddName = name => (
     {
         type: 'MANUAL_ADD_NAME',
         name
+    }
+)
+
+
+export const getUserInfo = info => (
+    {
+        type: 'GET_USER_INFO',
+        info
     }
 )

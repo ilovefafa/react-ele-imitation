@@ -35,3 +35,24 @@ textarea {
     font-size: inherit;
     font-family: inherit;
 }
+
+.message-component {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    .message {
+        padding: 1vw 4vw;
+        background: #333;
+        border-radius: 5vw;
+        line-height: 5vw;
+        white-space: nowrap;
+        height: 5vw;
+        color: white;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+    }
+    .message-active {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,61 @@
+.setPhone {
+    .warp {
+        margin-top: 2.666667vw;
+        .inputGroup {
+            padding-left: 4vw;
+            background: #fff;
+            .inputWarp {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #fff;
+                line-height: 11.733333vw;
+                padding-right: 4vw;
+                &:nth-child(even) {
+                    border-top: 1px solid #eee;
+                }
+                .valuePair {
+                    flex: 1;
+                    .field {
+                        font-size: 14px;
+                        padding-right: 2vw;
+                    }
+                    input {
+                        display: inline-block;
+                    }
+                }
+                .getAuthCode {
+                    color: #fff;
+                    border-color: #0097ff;
+                    background-color: #0097ff;
+                    height: 8vw;
+                    white-space: nowrap;
+                    padding: 0 3.333333vw;
+                    border: 2px solid transparent;
+                    border-radius: .533333vw;
+                    font-size: 14px;
+                }
+            }
+        }
+        .buttonWarp {
+            padding: 4.4vw 4vw 3.466667vw;
+            button {
+                color: rgba(0, 0, 0, .38);
+                border-color: transparent;
+                background-color: rgba(0, 0, 0, .06);
+                width: 100%;
+                height: 11.733333vw;
+                font-weight: 700;
+                font-size: 14px;
+                border-radius: .533333vw;
+                border: 2px solid transparent;
+                padding: 0 3.333333vw;
+            }
+            .success {
+                color: #fff;
+                border-color: #4cd964;
+                background-color: #4cd964;
+            }
+        }
+    }
+}
