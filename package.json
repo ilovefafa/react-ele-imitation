@@ -2,11 +2,13 @@
   "name": "react-ele-imitation",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://yinengdk.com/ele/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "0.1.0-11",
     "animated": "^0.2.2",
+    "animated-scroll-to": "^1.2.2",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
     "babel-core": "6.26.0",
@@ -34,6 +36,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "jsonp": "^0.2.1",
+    "lodash": "^4.17.11",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -49,6 +52,7 @@
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
     "resolve": "1.6.0",
+    "scrollreveal": "^4.0.2",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "throttle-debounce": "^2.0.1",
@@ -61,7 +65,8 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "//": "&& rm dist/static/js/*.map",
+    "build": "node scripts/build.js ",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {

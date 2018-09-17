@@ -6,7 +6,7 @@ import './style.scss'
 import svgUrl from '@/assets/images/login.svg'
 import { isLogin, getUserInfo } from '@/redux/actions/'
 import { connect } from 'react-redux'
-import validate from '@/utlis/validate';
+import validate from '@/utils/validate';
 
 class Login extends Component {
     constructor() {

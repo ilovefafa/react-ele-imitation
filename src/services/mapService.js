@@ -1,5 +1,5 @@
 import BMap from 'BMap'
-import request from '../utlis/request'
+import request from '../utils/request'
 
 let geolocation = new BMap.Geolocation();
 let getLocationAuto = () => {
@@ -35,7 +35,8 @@ function placeSuggestion(keywords, region) {
             city_limit: true,
             key: '620a9880be9de263ef4b4fea4bdce3a2',
         },
-        withCredentials: false
+        withCredentials: false,
+        noInterceptors: true
     })
 }
 

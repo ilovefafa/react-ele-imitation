@@ -1,0 +1,228 @@
+.MyAddress {
+    .Index {
+        .address {
+            display: flex;
+            align-items: center;
+            padding: 3vw 4vw 5vw;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            .body {
+                flex: 1;
+                h1 {
+                    margin-bottom: 1vw;
+                    span {
+                        font-size: 16px;
+                        &:nth-child(1) {
+                            font-weight: 600;
+                            padding-right: 1vw;
+                        }
+                        &:nth-child(2) {
+                            padding-right: 2vw;
+                            color: #666;
+                        }
+                        &:nth-child(3) {
+                            padding-right: 2vw;
+                            color: #666;
+                        }
+                    }
+                }
+                h2 {
+                    display: flex;
+                    align-items: center;
+                    .label {
+                        white-space: nowrap;
+                        padding: 1px;
+                        margin-right: 0.8vw;
+                        font-size: 10px;
+                        color: #ff5722;
+                        border: 1.3px solid #ff5722;
+                    }
+                    span {
+                        &:last-child {
+                            font-size: 12px;
+                            color: #666;
+                        }
+                    }
+                }
+            }
+            .operator {
+                svg {
+                    height: 5.066667vw;
+                    width: 4.8vw;
+                    &:nth-child(1) {
+                        margin-right: 3vw;
+                    }
+                }
+            }
+        }
+        .newAddress {
+            z-index: 1003;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 10vh;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3190e8;
+            p {
+                font-size: 18px;
+            }
+            img {
+                width: 6vw;
+                padding-right: 2vw;
+            }
+        }
+    }
+    .Form {
+        .warp {
+            background: #fff;
+            padding-left: 3vw;
+            section {
+                border-bottom: 1px solid #eee;
+                display: flex;
+                font-weight: 300;
+                color: #666;
+                .field {
+                    font-weight: 700;
+                    padding: 3.733333vw 0;
+                    flex: 0 0 20%;
+                    color: black;
+                    p {
+                        line-height: 16px;
+                    }
+                }
+                .inputWarp {
+                    display: flex;
+                    flex: 1;
+                    padding: 3.733333vw 0;
+                    width: 100%;
+                    align-items: center;
+                    input {
+                        flex: 1;
+                        padding: 0;
+                        font-weight: 300;
+                        line-height: 16px;
+                        color: #666;
+                    }
+                    svg {
+                        height: 5vw;
+                        width: 5vw;
+                        padding-right: 4vw;
+                    }
+                    textarea {
+                        flex: 1;
+                        padding: 0;
+                        font-weight: 300;
+                        line-height: 16px;
+                    }
+                }
+                .addressDetail {
+                    font-size: 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding-bottom: 2vw;
+                    border-bottom: 1px solid #eee;
+                    line-height: 5vw;
+                }
+                .group {
+                    overflow: hidden;
+                    flex: 1;
+                }
+                .labelGroup {
+                    display: flex;
+                    padding: 3vw 0;
+                    .label {
+                        padding: 2vw 4vw;
+                        margin-right: 3vw;
+                        border: 1px solid #eee;
+                        border-radius: 2vw;
+                        font-weight: 300;
+                    }
+                    .checked {
+                        color: #2395ff;
+                        background: #eef7ff;
+                        border-color: rgba(35, 149, 255, 0.18);
+                    }
+                }
+            }
+            .multi {
+                .inputWarp {
+                    border-bottom: 1px solid #eee;
+                }
+                .top {
+                    border-bottom: 0px;
+                }
+                .field {
+                    p {
+                        margin-bottom: calc(7.466666vw + 1px);
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                    .detailPop {
+                        margin-bottom: calc(7.466666vw + 1px + 2vw + 5vw);
+                    }
+                }
+            }
+        }
+        .buttonWarp {
+            padding: 6vw 4vw;
+            .button {
+                line-height: 12vw;
+                text-align: center;
+                border-radius: 2vw;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+                background: #00d762;
+            }
+        }
+    }
+    .SearchAddress {
+        min-height: 100vh;
+        background: #fff;
+        .warp {
+            padding: 2vw 5vw 0;
+            .searchBox {
+                display: flex;
+                align-items: center;
+                input {
+                    padding: 2vw 0 2vw 8vw;
+                    flex: 1;
+                    background: url(./search.png) 2vw no-repeat;
+                    background-size: 3.466667vw 3.466667vw;
+                    background-color: #f5f5f5;
+                    border: 1px solid #ddd;
+                    font-size: 12px;
+                    color: #666;
+                }
+                .button {
+                    margin-left: 3vw;
+                    border-radius: 1vw;
+                    color: #fff;
+                    padding: 2vw 4vw;
+                    background-color: #0097ff;
+                }
+            }
+            .informations {
+                padding-top: 2vw;
+                .information {
+                    padding: 2vw 0 4vw;
+                    border-bottom: 1px solid #eee;
+                    h1 {
+                        font-size: 14px;
+                    }
+                    h2 {
+                        font-size: 12px;
+                        color: #666;
+                    }
+                }
+            }
+        }
+    }
+}

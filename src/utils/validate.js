@@ -4,8 +4,7 @@ export default {
         return /^(?=.*[a-z])(?=.*\d)[^]{1,16}$/.test(str)
     },
     phoneNumber(str) {
-        if (str.length !== 11) return false
-        if (isNaN(str)) return false
+        if (!str || str.length !== 11 || isNaN(str)) return false
         return true
     },
     authCode(str) {

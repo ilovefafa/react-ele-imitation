@@ -22,6 +22,8 @@ class SelectCity extends Component {
             // behavior: 'smooth',
             top: elementPosition - headerOffset,
         });
+
+
     }
     search = (e) => {
         this.value = e.target.value
@@ -92,16 +94,16 @@ class SelectCity extends Component {
                                 })}
                         </div>
                     </div>
-                    <div className="letterBar">
-                        <ul>
-                            {cityData.map((item, index) => {
-                                return (
-                                    <li onClick={this.jumpAnchor} key={index}>{item.letter}</li>
-                                )
-                            })}
-                        </ul>
-                    </div>
                 </div>
+                {this.props.toggle ? <div className="letterBar">
+                    <ul>
+                        {cityData.map((item, index) => {
+                            return (
+                                <li onClick={this.jumpAnchor} key={index}>{item.letter}</li>
+                            )
+                        })}
+                    </ul>
+                </div> : ''}
             </React.Fragment>
         )
     }

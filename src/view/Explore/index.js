@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './style.scss'
 import Icon from '@/components/Icon/'
+import HeaderComponent from '@/components/HeaderComponent/'
+import FooterNav from '@/components/FooterNav/'
+
 class Explore extends Component {
-    componentDidMount() {
-        document.title = "发现"
-    }
+
     render() {
         return (
             <div className="Explore" >
-                <div className="header">
-                    <img src={require('@icon/leftArrow.svg')} alt="" />
-                    <p>发现</p>
-                </div>
+                <HeaderComponent name="发现" />
                 <div className="banner">
                     <img src="https://fuss10.elemecdn.com/2/9f/cedf0f9959a7e699f81dba18d0aa6gif.gif" alt="" />
                 </div>
@@ -77,6 +75,7 @@ class Explore extends Component {
                         <p>查看更多<span>></span></p>
                     </div>
                 </section>
+                <FooterNav></FooterNav>
             </div>
         )
     }

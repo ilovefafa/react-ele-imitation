@@ -1,0 +1,70 @@
+#confirm {
+    .Confirm {
+        .shade {
+            transition: all 0.3s ease-in-out;
+            background: black;
+            opacity: 0;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .warp {
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            position: fixed;
+            background: #fff;
+            z-index: 2001;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            padding: 6vw 3vw 4vw;
+            height: 22vh;
+            width: 80%;
+            border-radius: 1vw;
+            text-align: center;
+            h1 {
+                font-size: 18px;
+                font-weight: 700;
+                padding-bottom: 3vw;
+            }
+            h2 {
+                padding-bottom: 3vw;
+            }
+            .operator {
+                display: flex;
+                justify-content: space-between;
+                .button {
+                    width: 48%;
+                    padding: 4vw 0;
+                    box-sizing: border-box;
+                    border-radius: 1vw;
+                }
+                .cancel {
+                    border: 1px solid #eee;
+                }
+                .confirm {
+                    color: #fff;
+                    background: #3190e8;
+                }
+            }
+        }
+        .active {
+            opacity: 1;
+        }
+        .leave {
+            transform: scale(0);
+            opacity: 0;
+        }
+        .shade-active {
+            opacity: 0.6;
+        }
+        .shade-leave {
+            opacity: 0;
+        }
+    }
+}

@@ -86,6 +86,7 @@ module.exports = {
     alias: {
       '@services': path.resolve(__dirname, '../src/services'),
       '@icon': path.resolve(__dirname, '../src/assets/images/icon'),
+      '@images': path.resolve(__dirname, '../src/assets/images'),
       '@action': path.resolve(__dirname, '../src/redux/actions/'),
       '@reducer': path.resolve(__dirname, '../src/redux/reducers'),
       '@': path.resolve(__dirname, '../src'),

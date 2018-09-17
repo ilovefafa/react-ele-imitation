@@ -1,4 +1,4 @@
-import request from '../utlis/request'
+import request from '../utils/request'
 
 function loginByAccount(account, password) {
     return request({

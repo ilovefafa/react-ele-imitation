@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 import './style.scss'
 class AuthRoute extends Component {
   render() {
-    let { exact, component: Component, isLogin, ...rest } = this.props
-    let _exact = true
-    if (exact === false) { _exact = false }
+    let { component: Component, isLogin, ...rest } = this.props
     return (
       <Route
-        exact={_exact}
         {...rest}
         render={props =>
           isLogin ? (
@@ -35,4 +32,3 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps)(AuthRoute))
-// export default AuthRoute

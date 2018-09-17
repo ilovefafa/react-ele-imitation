@@ -1,0 +1,104 @@
+.Gold {
+    .goldHeader {
+        color: #fff;
+        padding: 5vw 6vw 5vw;
+        background-image: linear-gradient(90deg, #0af, #0085ff);
+        svg {
+            fill: #fff;
+        }
+        h1 {
+            span {
+                font-size: 30px;
+                font-weight: 800;
+                padding-right: 2vw;
+                vertical-align: middle;
+                line-height: 1;
+            }
+            .arrow_right {
+                height: 4vw;
+                width: 4vw;
+                vertical-align: middle;
+            }
+        }
+        p {
+            padding-top: 1vw;
+            span {
+                padding-right: 1vw;
+                font-size: 12px;
+                vertical-align: middle;
+                line-height: 1;
+            }
+            .question_mark {
+                height: 4vw;
+                width: 4vw;
+                vertical-align: middle;
+            }
+        }
+    }
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 15vw;
+        background: #fff url(~@images/activity/background11.png) center center no-repeat;
+        background-size: contain;
+        h1 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        p {
+            color: #666;
+            font-size: 10px;
+        }
+    }
+    .merchandises {
+        display: flex;
+        flex-wrap: wrap;
+        .merchandise {
+            box-sizing: border-box;
+            padding: 2vw 3vw 4vw;
+            background: #fff;
+            width: 50%;
+            border-top: 1px solid #eee;
+            &:nth-child(odd) {
+                border-right: 0.5px solid #eee;
+            }
+            &:nth-child(even) {
+                border-left: 0.5px solid #eee;
+            }
+            h1 {
+                font-size: 14px;
+                padding-bottom: 2vw;
+            }
+            p {
+                font-size: 12px;
+                span {
+                    font-size: 12px;
+                    &:nth-child(1) {
+                        color: red;
+                        font-weight: 500;
+                    }
+                    &:nth-child(2) {
+                        color: #666;
+                        padding: 0vw 1vw;
+                    }
+                    &:nth-child(3) {
+                        font-size: 10px;
+                        color: #fff;
+                        background: red;
+                        padding: 0 1vw;
+                        font-weight: 500;
+                        border-radius: 1vw;
+                        vertical-align: top;
+                    }
+                }
+            }
+            img {
+                margin-top: 3.2vw;
+                width: 42vw;
+                height: 26vw;
+            }
+        }
+    }
+}

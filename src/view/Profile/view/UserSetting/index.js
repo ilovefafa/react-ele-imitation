@@ -19,12 +19,11 @@ class UserSetting extends Component {
         }
         let formData = new FormData();
         formData.append('file', file)
-        formData.append('test1', 'test')
         let res = await userService.upLoadHeadPicture(formData)
-        updateUserInfo({ headImgPath: res.data.path })
+        updateUserInfo(res.data)
     }
     render() {
-        let { headImgPath, name, encryptPhoneNumber, changeName } = this.props
+        let { headImg, name, encryptPhoneNumber, changeName } = this.props
         return (
             <div className="UserSetting" >
                 <HeaderComponent name='账户信息' />
@@ -35,7 +34,7 @@ class UserSetting extends Component {
                     </div>
                     <div className="right">
                         <div className="head-photo" alt="" >
-                            {headImgPath ? <img src={headImgPath} alt="" /> : ''}
+                            {headImg ? <img src={headImg} alt="" /> : ''}
                         </div>
                         <Icon name="arrow-right"></Icon>
                     </div>
@@ -71,16 +70,16 @@ class UserSetting extends Component {
                             <p>登录密码</p>
                         </div>
                         <div className="right">
-                            <p className="not-set">未设置</p>
+                            <p className="not-set">修改</p>
                             <Icon name="arrow-right"></Icon>
                         </div>
                     </div>
                 </Link>
-                <Link to='/'>
-                    <div className="login-out">
-                        <p>退出登录</p>
-                    </div>
-                </Link>
+                <div onClick={async () => {
+                    await userService.logout()
+                }} className="login-out">
+                    <p>退出登录</p>
+                </div>
             </div>
         )
     }

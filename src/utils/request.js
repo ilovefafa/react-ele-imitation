@@ -4,12 +4,17 @@ import { store } from '../index'
 import { isLogin } from '../redux/actions/index'
 const client = axios.create({
     withCredentials: true,
-    baseURL: process.env.NODE_ENV !== 'production' ?
-        'http://localhost:3002' : '',
+    baseURL: process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:8080'
+        : 'http://yinengdk.com/ele',
 })
 
 client.interceptors.request.use(function (config) {
-    config.headers = { 'X-Custom-Header': 'foobar' }
+    if (config.noInterceptors) return config
+    config.headers = {
+        'X-Custom-Header': 'foobar',
+        // 'Accept': 'application/json,image/*'
+    }
     return config;
 }, function (error) {
     // Do something with request error
@@ -19,6 +24,7 @@ client.interceptors.request.use(function (config) {
 function request(options) {
     function onSuccess(response) {
         let _isLogin = store.getState().userInfo.isLogin
+        if (response.data.login === undefined) return response.data
         if (response.data.login === true) {
             if (_isLogin === false) { isLogin(true) }
         } else {

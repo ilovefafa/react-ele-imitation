@@ -1,4 +1,4 @@
-import request from '../utlis/request'
+import request from '../utils/request'
 
 function get(limit = 5, skip = 0) {
     return request({

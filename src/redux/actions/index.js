@@ -1,5 +1,12 @@
 import { store } from '@/index.js'
 
+export const updateCart = (data) => (store.dispatch(
+    {
+        type: 'UPDATE_SHOPPINGCART',
+        data,
+    }
+))
+
 export const updateUserInfo = (data) => (store.dispatch(
     {
         type: 'UPDATE_USERINFO',

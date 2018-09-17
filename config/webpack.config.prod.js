@@ -92,6 +92,7 @@ module.exports = {
     alias: {
       '@services': path.resolve(__dirname, '../src/services'),
       '@icon': path.resolve(__dirname, '../src/assets/images/icon'),
+      '@images': path.resolve(__dirname, '../src/assets/images'),
       '@action': path.resolve(__dirname, '../src/redux/actions/'),
       '@reducer': path.resolve(__dirname, '../src/redux/reducers'),
       '@': path.resolve(__dirname, '../src'),
@@ -263,6 +264,11 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          //svg sprite
+          {
+            test: /\.sprite.svg$/,
+            loader: 'svg-sprite-loader'
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

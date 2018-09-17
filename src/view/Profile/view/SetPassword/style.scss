@@ -1,0 +1,43 @@
+.setPassword {
+    .warp {
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2.666667vw 2.666667vw 0;
+        .warpInput {
+            width: 100%;
+            margin-bottom: 2.666667vw;
+            input {
+                display: block;
+                box-sizing: border-box;
+                margin-bottom: 1.333333vw;
+                width: 100%;
+                padding: 2.133333vw 1.066667vw;
+                background: #f2f2f2;
+                border: 1px solid #ddd;
+                border-radius: .266667vw;
+                font-size: 12px;
+            }
+            .validate {
+                color: #ea3106;
+                font-size: 12px;
+            }
+        }
+    }
+    .button {
+        text-align: center;
+        padding: 2.933333vw 0;
+        margin: 4vw auto;
+        color: #fff;
+        border-radius: .8vw;
+        font-size: 16px;
+        font-weight: 800;
+        background-color: #3199e8;
+        width: 95%;
+    }
+    .disable {
+        background-color: #ccc;
+    }
+}

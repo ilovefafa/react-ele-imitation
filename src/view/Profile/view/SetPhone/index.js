@@ -3,7 +3,7 @@ import HeaderComponent from '@/components/HeaderComponent/'
 import userService from '@services/userService'
 import { updateUserInfo } from '@action'
 import { connect } from 'react-redux'
-import validate from '@/utlis/validate'
+import validate from '@/utils/validate'
 import { Redirect } from 'react-router-dom'
 import './style.scss'
 

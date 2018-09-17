@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'CSD';
+    src: url(~@/assets/font/csd_bloc.woff);
+}
+
+.RedPacket {
+    .nav {
+        display: flex;
+        background-image: linear-gradient(90deg, #00aaff, #0085ff);
+        text-align: center;
+        .item {
+            flex: 1;
+            font-weight: 500;
+            color: #fff;
+            opacity: 0.69;
+            line-height: 10.666667vw;
+            span {
+                position: relative;
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: -1.5vw;
+                    display: block;
+                    content: none;
+                    width: 100%;
+                    height: 0.533333vw;
+                    background-color: #fff;
+                }
+            }
+        }
+        .active {
+            opacity: 1;
+            span {
+                &:after {
+                    content: "";
+                }
+            }
+        }
+    }
+    .warp {
+        padding: 2vw 4vw;
+        .coupon {
+            margin-top: 2vw;
+            display: flex;
+            padding: 5.333333vw 0 4.266667vw;
+            background: #fff;
+            align-items: center;
+            position: relative;
+            .h5-component-newBadge {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 6.933333vw;
+                width: 6.933333vw;
+                fill: black;
+            }
+            .value {
+                text-align: center;
+                h1 {
+                    font-family: 'CSD';
+                    font-size: 28px;
+                    color: #ff0025;
+                    width: 26vw;
+                    span {
+                        vertical-align: text-top;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+                h2 {
+                    color: #666;
+                    font-size: 10px;
+                }
+            }
+            .desc {
+                padding-left: .8vw;
+                flex: 1;
+                h1 {
+                    font-weight: 700;
+                    font-size: 16px;
+                    padding-bottom: 2vw;
+                }
+                p {
+                    font-size: 10px;
+                    color: #666;
+                }
+            }
+            .button {
+                margin-right: 4vw;
+                background-color: #ff3a48;
+                border-radius: 13.333333vw;
+                color: #fff;
+                font-size: 12px;
+                font-weight: 700;
+                padding: 1.066667vw 2.8vw;
+            }
+        }
+    }
+    .ShopHongbao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10vw;
+        img {
+            width: 60vw;
+        }
+        h1 {
+            font-size: 16px;
+            margin: 4vw 0;
+        }
+        button {
+            padding: 2.666667vw;
+            min-width: 32vw;
+            border: none;
+            border-radius: .533333vw;
+            background-color: #56d176;
+            color: #fff;
+            text-align: center;
+        }
+    }
+}

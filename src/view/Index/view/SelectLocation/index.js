@@ -21,7 +21,7 @@ class SelectLocation extends Component {
             let region = store.getState().userInfo.location.city
             if (region !== '选择城市' && query !== '') {
                 let respone = await mapService.placeSuggestion(query, region)
-                this.searchTips = respone.data.tips
+                this.searchTips = respone.tips
                 this.forceUpdate()
             }
             this.isResquest = false
