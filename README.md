@@ -1,5 +1,7 @@
 # 简介
 学习项目，仿造[饿了么](https://h5.ele.me/)
+
+[H5临时预览地址](http://yinengdk.com/ele/),未完工。
 ## 路线图
 - [ ] h5页面
 - [ ] 使用react-native制作原生应用
